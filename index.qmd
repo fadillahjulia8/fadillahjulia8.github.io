@@ -1,0 +1,208 @@
+---
+title: "PENGARUH EKSPOR DAN IMPOR BATU BARA TERHADAP PDB INDONESIA TAHUN 2013-2022"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Fadillah Juliashar"
+date: 2024-01-09
+number-sections: true
+format:
+  html: default
+  docx: default
+---
+
+![ **POLITEKNIK APP JAKARTA**](LOGO%20APP.jpg){fig-align="center"}
+
+## Pendahuluan
+
+### Latar Belakang
+
+Peran penting batu bara sebagai sumber daya energi menimbulkan dampak besar pada perekonomian Indonesia, terutama melalui ekspor dan impor batu bara yang saling terkait dengan Pertumbuhan Domestik Bruto (PDB). Indonesia telah menjadi aktor kunci dalam pasar global batu bara dari tahun 2013 hingga 2022 (Leonard, 2019). PDB Indonesia sangat terkait dengan sektor energi, di mana kontribusi batu bara menjadi faktor signifikan.
+
+Ekspor batu bara memiliki pengaruh langsung terhadap penerimaan devisa negara, sementara impor mencerminkan kebutuhan energi dalam negeri dan kebijakan pemerintah terkait. Dalam kurun waktu 2013-2022, fluktuasi harga batu bara di pasar internasional turut menentukan dampak ekspor dan impor terhadap PDB. Kondisi ini tercermin dalam kebijakan pemerintah seputar pengelolaan sumber daya alam, dinamika harga global, dan perubahan dalam struktur ekonomi serta industri.
+
+### Ruang Lingkup
+
+Objek penelitian ini dibatasi hanya di negara Indonesia dan tidak meluas ke zona negara tertentu. Variable yang akan digunakan pada analisis kali ini yaitu nilai ekspor, nilai impor dan nilai PDB Indonesia.
+
+### Rumusan Masalah
+
+Rumusan masalah dari penelitian ini adalah:
+
+• Apakah ada pengaruh ekspor batu bara terhadap PDB Indonesia?
+
+• Apakah ada pengaruh impor batu bara terhadap PDB Indonesia?
+
+• Berapa besar pengaruh ekspor dan impor batu bara terhadap PDB Indonesia?
+
+### Tujuan Penelitian
+
+Tujuan penelitian ini adalah untuk mengetahui apakah ada pengaruh ekspor dan impor batu bara terhadap PDB Indonesia serta berapa besar pengaruhnya.
+
+### Manfaat Penelitian
+
+Manfaat teoritisnya antara lain adalah untuk memberikan wawasan baru bagi kalangan akademisi seputar topik ini. Sementara itu, manfaat praktisnya adalah memberikan uraian mendalam mengenai bagaimana melakukan analisis regresi di R studio serta dapat memberikan input bagi policy maker untuk mengatur ekspor impor batu bara agar dapat meningkatkan PDB jika terdapat pengaruh.
+
+### Package
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+## Studi Pustaka
+
+### Ekspor Batu Bara
+
+Ekspor batu bara Indonesia menjadi salah satu pilar utama pendapatan devisa negara. Menurut data dari Badan Pusat Statistik (2022). Setelah mencapai puncaknya pada tahun 2019, ekspor batu bara Indonesia mengalami fluktuasi yang mencerminkan berbagai faktor dalam dinamika pasar global.
+
+Beberapa faktor kunci yang mempengaruhi ekspor batu bara adalah:
+
+• Permintaan Global dan Harga Batu Bara : Permintaan global terhadap batu bara memiliki dampak signifikan terhadap kinerja ekspor Indonesia. Analisis oleh International Energy Agency (IEA) dan International Monetary Fund (IMF) menyoroti peran tumbuhnya ekonomi global khususnya di Asia dalam meningkatkan permintaan energi, termasuk batu bara. Selain itu, fluktuasi harga batu bara dunia yang tercermin dalam Indeks Harga Batu Bara Newcastle juga menjadi faktor yang signifikan (World Bank, 2022).
+
+• Kebijakan Perdagangan dan Regulasi : Kebijakan perdagangan dan regulasi baik di tingkat nasional maupun internasional memainkan peran penting. Undang-Undang Minerba dan kebijakan ekspor mineral Indonesia bersama dengan perubahan kebijakan di negara mitra dagang dapat menciptakan perubahan dalam volume dan nilai ekspor batu bara (Kementerian Energi dan Sumber Daya Mineral, 2022).
+
+• Infrastruktur dan Logistik : Infrastruktur dan kelancaran logistik juga memengaruhi kapasitas ekspor batu bara. Pembangunan dan perbaikan infrastruktur pelabuhan serta jaringan transportasi menjadi faktor kunci yang disoroti dalam literatur (Purwanto, 2016).
+
+• Dampak Pandemi dan Transisi Energi : Pandemi COVID-19 dan tren menuju energi bersih memberikan konteks penting. Analisis dampak pandemi terhadap permintaan energi dan perdagangan global bersama dengan transisi menuju energi bersih, memperumit dinamika ekspor batu bara (IEA, 2022).
+
+### Impor Batu Bara
+
+Selain ekspor, impor batu bara juga menjadi faktor penting yang memengaruhi keseimbangan perdagangan Indonesia. Penting untuk dicatat bahwa impor batu bara memiliki peran strategis dalam menjaga kestabilan pasokan domestik Indonesia. Meskipun Indonesia adalah eksportir batu bara terbesar, fluktuasi dalam produksi dan permintaan domestik dapat menimbulkan ketidakseimbangan pasokan.
+
+Data dari Badan Pusat Statistik (2022) menunjukkan variasi impor batu bara selama periode 2013-2022, mengindikasikan respons pemerintah terhadap perubahan kondisi pasar. Kebijakan impor batu bara turut memainkan peran kunci dalam menjaga ketahanan energi nasional dan menyediakan pasokan yang memadai bagi sektor industri. Untuk lebih memahami dampaknya terhadap PDB Indonesia, perlu diperhatikan pula peran impor batu bara dalam mencapai target kebutuhan energi dalam negeri.
+
+### PDB Indonesia
+
+Pertumbuhan ekonomi diukur melalui Produk Domestik Bruto (PDB). PDB mencakup total nilai semua barang dan jasa yang dihasilkan dalam batas wilayah suatu negara selama periode tertentu (Wulandari, 2021). Selain sebagai indikator utama pertumbuhan ekonomi PDB juga memberikan informasi penting tentang struktur sektor ekonomi, distribusi pendapatan, dan daya beli masyarakat.
+
+Dalam konteks Indonesia, PDB menjadi cermin keberhasilan kebijakan ekonomi dan perkembangan sektor-sektor kunci seperti pertanian, industri, dan jasa. Pertumbuhan PDB yang stabil dapat mencerminkan keberlanjutan pembangunan ekonomi, sementara fluktuasi dalam pertumbuhan PDB dapat menjadi sinyal terhadap tantangan dan peluang yang dihadapi negara. PDB per kapita yang merupakan PDB dibagi dengan jumlah penduduk, memberikan gambaran tentang distribusi pendapatan dan standar hidup masyarakat. Selain itu, sektor-sektor kontributor terhadap PDB, seperti manufaktur, pertambangan, dan sektor jasa, juga memberikan wawasan tentang struktur ekonomi suatu negara.
+
+## Metode Penelitian
+
+Berikut adalah data yang digunakan sebagai objek penelitian, data dibawah ini merupakan data nilai Ekspor-Impor dan Nilai PDB Indonesia.
+
+### Data
+
++-------------+-------------+-------------+-------------------+
+| TAHUN       | EXPORT (X1) | IMPORT (X2) | PDB Indonesia (Y) |
+|             |             |             |                   |
+|             | (Tons)      | (Tons)      | (Milyaran Rupiah) |
++:===========:+:===========:+:===========:+:=================:+
+| 2013        | 381,519,674 | 510,864     | 9,546,134         |
++-------------+-------------+-------------+-------------------+
+| 2014        | 356,302,906 | 2,274,907   | 10,569,705,3      |
++-------------+-------------+-------------+-------------------+
+| 2015        | 327,181,897 | 2,815,325   | 11,526,332,8      |
++-------------+-------------+-------------+-------------------+
+| 2016        | 310,662,259 | 3,565,029   | 12,401,728,5      |
++-------------+-------------+-------------+-------------------+
+| 2017        | 319,098,477 | 4,352,351   | 13,589,825,7      |
++-------------+-------------+-------------+-------------------+
+| 2018        | 343,124,011 | 5,357,791   | 14,838,756        |
++-------------+-------------+-------------+-------------------+
+| 2019        | 374,935,870 | 6,769,368   | 15,832,657,2      |
++-------------+-------------+-------------+-------------------+
+| 2020        | 341,547,629 | 7,955,444   | 15,443,353,2      |
++-------------+-------------+-------------+-------------------+
+| 2021        | 345,453,158 | 13,437,545  | 16,976,690,8      |
++-------------+-------------+-------------+-------------------+
+| 2022        | 360,285,221 | 10,699,219  | 19,588,445,6      |
++-------------+-------------+-------------+-------------------+
+
+Penelitian ini menggunakan data sekunder dengan bentuk data *Time Series* tahun 2013-2022. Data yang ada diperoleh dari Trademap dan Badan Pusat Statistik.
+
+```{r}
+library(tidyverse)
+library(readxl)
+METOPEN <- read_excel('FADILLAH JULIASHAR UAS.xlsx')
+```
+
+### Metode Analisis
+
+Penelitian ini menggunakan Teknik Analisis Kuantitatif Deskriptif dengan metode Regresi Multivariat. Dua variabel independen yang dipilih adalah Ekspor dan Impor, sedangkan variabel dependennya adalah Produk Domestik Bruto. Tujuan utama penelitian ini adalah untuk mengeksplorasi dan mengidentifikasi hubungan antara Ekspor (X1) dan Impor (X2) dengan PDB Indonesia (Y). Spesifikasi yang dilakukan adalah :
+
+$$
+y_{t}=\beta_0 + \beta_1 x1+\beta_2 x2+\mu
+$$ di mana $y_t$ adalah PDB, $x1$ adalah Export dan $x2$ adalah Import
+
+## Pembahasan
+
+### Pembahasan Masalah
+
+|      Variable      | Coefficient | Std. Error | t- Value |  Prob   |
+|:------------------:|:-----------:|:----------:|:--------:|:-------:|
+|     Intecerpt      |  8.663E+06  | 7.324E+06  |  1.183   | 0.27550 |
+|         X1         |  3.772E-03  | 2.111E-02  |  0.179   | 0.86326 |
+|         X2         |  7.038E-01  | 1.212E-01  |  5.805   | 0.00066 |
+|     R squared      |   0.8288    |            |          |         |
+| Adjusted R-Squared |   0.7799    |            |          |         |
+|    F-Statistic     |    16.94    |            |          |         |
+| Prob (F-Statistic) |  0.002077   |            |          |         |
+
+Persamaan regresinya adalah
+
+**Y = 8.663 + 3.772x1 + 7.038x2**
+
+Ekspor batu bara memiliki nilai koefisien yang positif, yang berarti semakin meningkat ekspor, semakin tinggi PDB. Namun, ekspor batu bara tidak berpengaruh signifikan terhadap PDB, p = 0.86326. Impor batu bara memiliki koefisien yang positif pula, yang berarti semakin meningkat impor, semakin tinggi PDB. Walaupun demikian, impor batu bara tidak berpengaruh signifikan terhadap PDB, p = 0.00066
+
+Nilai adjusted R-squared sebesar 0.7799 berarti 77,99% variasi pada PDB dapat dijelaskan oleh kedua variabel independent. Nilai probabilitas F statistik yang lebih kecil 0.05 (p = 0.002077) berarti secara bersama-sama ekspor dan impor batu bara berpengaruh signifikan terhadap PDB.
+
+### Analisis Masalah
+
+Hasil regresinya adalah
+
+```{r}
+library(readxl)
+reg2 <- lm(Y ~ X1 + X2, data = METOPEN)
+summary(reg2)
+METOPEN$e <- resid(reg2)
+```
+
+Setiap kenaikan nilai ekspor batu bara sebesar 1 akan berdampak pada meningkatnya PDB sebesar 3.772 dengan Y yang sama. Sementara itu, setiap kenaikan nilai impor batu bara sebesar 1 akan berdampak pada naiknya PDB sebesar 7.038
+
+*Plot pengaruh error terhadap nilai Ekspor*
+
+```{r}
+library(readxl)
+reg2 <- lm(Y ~ X1 + X2, data = METOPEN)
+plot(METOPEN$X1,METOPEN$e,xlab='Nilai Ekspor',ylab='error')
+abline(h=0)
+```
+
+*Plot pengaruh error terhadap nilai PDB*
+
+```{r}
+plot(METOPEN$X2,METOPEN$e,xlab="Nilai PDB",ylab="error")
+abline(h=0)
+```
+
+## Kesimpulan
+
+Ekspor dan Impor Batu Bara mempunyai peranan penting dalam memberikan kontribusinya terhadap produk domestik bruto (PDB) Indonesia. Berdasarkan hasil analisis diatas bahwa ekspor maupun impor batu bara tidak mempunyai dampak signifikan terhadap PDB.
+
+Namun jika angka Ekspor dan Impor diakumulasikan kita dapat melihat bahwa kombinasi kedua faktor ini sebenarnya mempunyai dampak yang signifikan terhadap PDB Indonesia. Indonesia dapat memanfaatkan keduanya untuk menghasilkan lebih banyak pendapatan dari sektor batu bara.
+
+Berdasarkan data, kontribusi Ekspor dan Impor batubara terhadap PDB mencapai 77,99% yang menunjukkan dominannya peran sektor ini terhadap pertumbuhan ekonomi negara. Oleh karena itu, penting untuk mempertimbangkan kedua aspek ini secara bersamaan dalam analisis ekonomi dan mempertimbangkan dampaknya terhadap pendapatan dan pertumbuhan ekonomi Indonesia.
+
+## Saran
+
+Untuk meningkatkan akurasi dari penelitian ini, sebaiknya untuk terus memperbanyak variabel yang mendukung variabel terkait.
+
+## Referensi
+
+Trade Map. (2022). Statistik Ekspor Impor Batu Bara. https://m.trademap.org/
+
+Badan Pusat Statistik. (2022). Statistik PDB Indonesia. https://www.bps.go.id/
+
+International Energy Agency. (2022). Coal 2022 – Analysis and Forecasts to 2027. https://www.iea.org/
+
+International Monetary Fund. (2022). World Economic Outlook Database. https://www.imf.org/
+
+Kementerian Energi dan Sumber Daya Mineral. (2022). Peraturan Perundang-undangan Sektor Energi dan Sumber Daya Mineral. https://www.esdm.go.id/
+
+Leonard, L. (2019). Indonesia Rajai Pasar Ekspor Batu Bara. Bisnis.com. https://ekonomi.bisnis.com/read/20190527/44/927982/indonesia-rajai-pasar-ekspor-batu-bara
+
+Purwanto, Y. (2016). Analisis Pengaruh Infrastruktur Terhadap Pertumbuhan Ekspor Batubara Indonesia. Jurnal Ilmu Manajemen Dan Akuntansi Terapan, 7(2), 89–104.
+
+World Bank. (2022). Commodities at a Glance: Coal. https://databank.worldbank.org/
+
+Wulandari, T. (2021). Pendapatan Nasional: Pengertian dan Jenisnya. Detik. https://www.detik.com/edu/detikpedia/d-5817378/pendapatan-nasional-pengertian-dan-jenisnya

@@ -1,0 +1,15 @@
+setwd('C:/Users/ASUS/Documents/UAS METOPEN')
+install.packages("tidyverse","readxl")
+library(tidyverse)
+library(readxl)
+'METOPEN <- read_excel(FADILLAH JULIASHAR UAS.xlsx)'
+str(METOPEN)
+'reg2 <- lm(`Y` ~ `X1` + `X2`, data = METOPEN)'
+summary(reg2)
+FADILLAH <- resid(reg2)
+plot(METOPEN$X1,FADILLAH,xlab='Nilai Ekspor',ylab='error')
+abline(h=0)
+plot(METOPEN$X2,FADILLAH,xlab="Nilai Ekspor",ylab="error")
+abline(h=0)
+plot(METOPEN$X2,FADILLAH,xlab='Nilai PDB',ylab='error')
+abline(h=0)
